@@ -54,7 +54,9 @@ fn validate_name(name: &str, kind: &str) -> eyre::Result<()> {
         );
     }
     if RESERVED_CARGO_TARGET_NAMES.contains(&name) {
-        bail!("{kind} name `{name}` is invalid: cargo forbids target names that collide with its build directories");
+        bail!(
+            "{kind} name `{name}` is invalid: cargo forbids target names that collide with its build directories"
+        );
     }
     Ok(())
 }
